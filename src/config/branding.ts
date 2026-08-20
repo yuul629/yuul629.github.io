@@ -9,7 +9,7 @@
  *
  * Change them here. `site.config.ts` reads from this file.
  */
-export const SITE_NAME = 'Astro Rocket';
+export const SITE_NAME = 'Yulisas portfolio';
 
 /** Browser toolbar colour, and the fill behind the favicon letter. */
-export const THEME_COLOR = '#0083fe';
+export const THEME_COLOR = '#94524A';

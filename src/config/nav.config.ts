@@ -84,22 +84,19 @@ export interface ResolvedNavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Home', href: '/', order: 0 },
+  { label: 'Career Projects', href: '/career-projects', order: 1 },
+  { label: 'Passion Projects', href: '/passion-projects', order: 2 },
+  { label: 'About', href: '/about', order: 3 },
+  { label: 'Contact', href: '/contact', order: 4 },
 ];
 
 export const footerNavItems: NavItem[] = [
-  { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
-  { label: 'GitHub', href: 'https://github.com/hansmartensdev/Astro-Rocket', order: 6, external: true },
+  { label: 'Home', href: '/', order: 0 },
+  { label: 'Career Projects', href: '/career-projects', order: 1 },
+  { label: 'Passion Projects', href: '/passion-projects', order: 2 },
+  { label: 'About', href: '/about', order: 3 },
+  { label: 'Contact', href: '/contact', order: 4 },
 ];
 
 export const legalLinks: LegalLink[] = [];
@@ -123,14 +120,11 @@ export const legalLinks: LegalLink[] = [];
  */
 export const footerLinkGroups: FooterLinkGroupConfig[] = [
   {
-    titleKey: 'footer.groups.questions',
-    title: 'Got questions?',
+    title: 'Find me',
     links: [
-      { label: 'FAQ', href: '/about#faq' },
-      { label: 'Email', href: 'mailto:hello@hansmartens.dev' },
-      { label: 'GitHub', href: 'https://github.com/hansmartensdev/Astro-Rocket', external: true },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/hansmartensdev', external: true },
-      { label: 'Bluesky', href: 'https://bsky.app/profile/hansmartensdev.bsky.social', external: true },
+      { label: 'Email', href: 'mailto:y.x.blok@student.tue.nl' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yulisablok', external: true },
+      { label: 'GitHub', href: 'https://github.com/yuul629', external: true },
     ],
   },
 ];

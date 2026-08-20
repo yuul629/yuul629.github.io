@@ -264,42 +264,31 @@ const siteConfig: SiteConfig = {
   // import this file, uses the same values. Change them there.
   name: SITE_NAME,
   description:
-    'A free, fast Astro 7 starter theme to build anything on: 44 designed components, 12 colour themes, dark mode, and built-in i18n.',
-  tagline: 'Astro 7 starter theme to build anything on',
-  footerNote: 'Free & open source · MIT licensed',
+    'Yulisas portfolio site',
+  tagline: 'Designing creative meaningfull interactions',
+  footerNote: 'Based in the Netherlands',
   url: SITE_URL || SITE_URL_FALLBACK,
   // Generated at build time from `name`, `tagline` and the brand colour below.
   // Point this at a file in `public/` to use your own — it has to be a raster
   // (PNG or JPEG): social platforms don't render SVG share images.
   ogImage: '/og/default.png',
-  author: 'Hans Martens',
-  email: 'hello@hansmartens.dev',
-  address: {
-    street: '',
-    city: 'Amsterdam',
-    state: '',
-    zip: '',
-    country: 'the Netherlands',
-  },
+  author: 'Yulisa Blok',
+  email: 'y.x.blok@student.tue.nl',
+
   socialLinks: [
-    'https://github.com/hansmartensdev',
-    'https://x.com/hansmartens_dev',
-    'https://www.linkedin.com/in/hansmartensdev',
-    'https://bsky.app/profile/hansmartensdev.bsky.social',
+    'https://github.com/yuul629',
+    'https://www.linkedin.com/in/yulisablok',
   ],
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
-    showSocialLinks: false,
+    showSocialLinks: true,
   },
-  twitter: {
-    site: 'https://x.com/hansmartens_dev',
-    creator: '@hansmartens_dev',
-  },
+
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,
   },
-  authorImage: '/avatar.svg',
+  authorImage: '/profile.jpg',
   blogImageOverlay: true,
   effects: {
     cursorTrail: true,
@@ -359,7 +348,7 @@ const siteConfig: SiteConfig = {
   newsletter: {
     // On by default: the form knows whether it has keys and says so itself,
     // in dev only. Set RESEND_API_KEY and RESEND_AUDIENCE_ID to make it work.
-    enabled: true,
+    enabled: false,
   },
   blog: {
     postsPerPage: 12,
