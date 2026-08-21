@@ -44,7 +44,7 @@ export const site = {
 
   author: {
     /** Full name shown in navbar, about page heading, and footer. */
-    name: 'YB',
+    name: 'Yulisa`s portfolio',
 
     /** Short email address (used in social links). */
     email: 'y.x.blok@student.tue.nl',
