@@ -1,141 +1,211 @@
-# Working in this codebase
+# AGENTS.md — as-folio
 
-Astro Rocket is a starter theme. You are almost certainly here to help someone
-build **their** website on top of it, not to develop the theme itself. This file
-tells you where everything lives and which conventions to follow, so you can
-make changes that fit rather than changes that merely work.
+Guidelines for AI agents (Claude Code, Codex, Copilot Workspace, etc.) contributing to as-folio.
 
-## The shape of the project
+---
 
+## Repository layout
+
+```text
+as-folio/
+├── src/
+│   ├── config/site.ts        ← single config file (start here)
+│   ├── content/              ← collections: posts, projects, people, teaching, books, announcements
+│   ├── data/
+│   │   ├── papers.bib        ← BibTeX bibliography
+│   │   ├── coauthors.yml     ← co-author profile links (LastName: { url, scholar, orcid })
+│   │   ├── citations.yml     ← citation counts keyed by google_scholar_id (auto-updated)
+│   │   ├── cv.yml            ← RenderCV format CV
+│   │   ├── resume.json       ← JSONResume format CV
+│   │   └── repositories.yml  ← GitHub repos config
+│   ├── layouts/              ← Base.astro, Page.astro, Post.astro, Distill.astro
+│   ├── components/           ← UI components
+│   ├── pages/                ← Astro route pages
+│   └── styles/               ← global.css, _colors.css, _typography.css
+├── scripts/
+│   └── update-citations.ts   ← fetches citation counts from OpenAlex API (run via yarn citations:update)
+├── public/                   ← static assets (images, favicon, PDFs)
+├── astro.config.mjs
+├── package.json
+├── CLAUDE.md                 ← coding conventions and architecture (read this first)
+├── AGENTS.md                 ← this file
+├── README.md
+├── QUICKSTART.md
+└── CUSTOMIZE.md
 ```
-src/config/          Site settings — start here for almost any request
-src/content/         The site's content (Markdown/MDX/JSON collections)
-src/i18n/            All user-facing interface text, per language
-src/components/      44 components, grouped by purpose
-src/pages/           Routes; a file here is a URL
-src/layouts/         Page shells the routes render into
-src/lib/             Helpers for blog, projects, tags, SEO, themes
-src/styles/          Design tokens and the twelve colour themes
-component-registry.json   Machine-readable catalogue of every component
-```
 
-**Read `component-registry.json` first.** It lists every component with its
-category, purpose and props. It is the fastest way to find out whether the
-thing you are about to build already exists — it usually does.
+All paths in this file are relative to the repository root.
 
-It is also the only source for the component count. Every number in the
-README and in the site copy is derived from it, and
-`src/__tests__/component-count.test.ts` fails if they drift apart. The figure
-used to be 57, taken from another theme's documentation; nothing checked it,
-so it survived in six places while the showcase page's own badge said 50+.
-Do not write a component count you have not counted from this file.
+---
 
-## Where to make a change
-
-| The request | The file |
-|---|---|
-| Site name, logo, social links, contact details | `src/config/site.config.ts` |
-| Navigation menus | `src/config/nav.config.ts` |
-| Languages | `src/config/i18n.config.ts` |
-| Cookie-consent behaviour | `src/config/consent.config.ts` |
-| Any interface text, including `aria-label`, `alt`, `placeholder` and `title` | `src/i18n/en.json` (and other locales) |
-| A blog post | a new `.mdx` file in `src/content/blog/<locale>/` |
-| A project | a new `.mdx` file in `src/content/projects/<locale>/` |
-| Colours | `src/styles/themes/*.css` — twelve themes, tokens only |
-
-**Page copy is not in the page files.** Text lives in `src/i18n/en.json` and is
-read through `t()`. Editing a heading usually means editing JSON, not `.astro`.
-If a page appears to have hard-coded text, check the locale file first.
-
-## Before a feature goes in
-
-**Two questions, before the merge and not after.** Does a general user of this
-theme need it? Does the theme need it? A working contribution answers neither,
-and a feature merged on the strength of working code arrives with a
-maintenance surface nobody agreed to carry.
-
-Answering no is not a rejection of the contributor. It is cheaper for everyone
-than a feature the theme carries and nobody maintains.
-
-## Conventions worth keeping
-
-- **Use existing components.** Check the registry before writing a new one.
-  Components share one design language; a bespoke element breaks it.
-- **Use the design tokens.** Colours come from CSS custom properties defined in
-  `src/styles/`. Never hard-code a hex value — it will not follow the colour
-  theme, and it will fail the contrast checks.
-- **Every locale file stays in step.** Adding a key to `en.json` means adding it
-  to every other locale, or that language falls back mid-page.
-- **Motion respects `prefers-reduced-motion`.** Anything animated must stop for
-  visitors who ask it to.
-- **Images go through `astro:assets`.** Use the `<Image>` component so sizes and
-  formats are generated at build time.
-- **Zero JavaScript unless it earns its place.** Astro ships none by default;
-  reach for a `<script>` only when the interaction genuinely needs one.
-
-## Commit messages
-
-This repository is public. Its history is read by people deciding whether to
-trust the theme, so a commit message is part of the product.
-
-- **Describe the change and why the design is what it is.** A maintainer
-  reading this in a year needs the reasoning behind a decision, not an account
-  of how it was reached.
-- **Never narrate the process.** No first-person account of what was tried,
-  what was missed, or what was learned. "The gate is scoped to the demo
-  deployment" belongs here; "I only tested two states" does not.
-- **No tool or session trailers.** No `Co-Authored-By` for an assistant, and no
-  links to an AI session. Some tooling adds these by default — remove them.
-- **Present tense, describing the code after the change.** "Scope demo content
-  to the demo deployment", not "Fixed the demo leaking".
-- **The subject names the change; it does not argue for it.** "Rewrite the
-  README overview", not "Say what Astro Rocket is before saying what is inside
-  it". No comparisons, no "not X but Y", no reasoning in the title — that is
-  what the body is for. Somebody scanning the history wants to know what each
-  commit did.
-- **Keep the subject line to 72 characters, and prefer 50.** GitHub builds a
-  pull request's title from the subject and cuts it at that length, moving what
-  is left into the description — so an over-long subject opens the pull request
-  with a fragment like "…arsing". The body is where detail belongs; it has no
-  limit.
-
-## Checks
-
-- **A check is not finished until it has failed once on purpose.** Write it,
-  run it against the broken state it exists to catch, watch it go red, then fix
-  the code and watch it go green. A check only ever run against working code is
-  an assumption with a green tick on it.
-- **Verify the path that fails, not only the path that works.** A container CI
-  job whose readiness loop ended in `sleep` passed while the container was
-  dead, and an export service with no `SITE_URL` argument shipped localhost
-  canonical tags with both build-time guards silent. Both were tested only in
-  the state where everything works.
-
-## Commands
+## Build command
 
 ```bash
-pnpm dev          # development server
-pnpm build        # production build — run before declaring work finished
-pnpm check        # astro check, TypeScript, ESLint and Prettier
-pnpm test         # Vitest unit tests
-pnpm fix          # apply ESLint and Prettier fixes
+yarn build        # must exit 0 before submitting any PR
 ```
 
-`pnpm build` is the real test. It runs `astro check`, the content-collection
-schemas and the link validation, and it fails on problems a dev server hides.
+Run this after every non-trivial change. If the build fails, fix it before proceeding.
 
-## Things that are easy to get wrong
+---
 
-- **Content collections are schema-checked.** Frontmatter that does not match
-  `src/content.config.ts` fails the build. Read the schema before adding fields.
-- **Drafts are filtered in production only.** `draft: true` still renders in
-  `pnpm dev`, so verify with a build.
-- **A draft is unreachable.** Linking to a drafted post or project produces a
-  404 in production. Check inbound links before drafting something.
-- **The theme supports multiple languages.** Locale-prefixed routes are
-  generated automatically; do not create `src/pages/<locale>/` files by hand.
+## What to do first
 
-## Before you finish
+1. **Read `CLAUDE.md`** — coding conventions, architecture, common pitfalls
+2. **Read `src/config/site.ts`** — understand the config shape before touching features
+3. **Read `src/content.config.ts`** — understand content schemas before adding fields
+4. **Run `yarn build`** — confirm baseline passes
 
-Run `pnpm build`. Then confirm what you changed is actually visible on the page
-you changed it on — not merely that the command exited without an error.
+---
+
+## Key rules
+
+### Package manager
+
+Use `yarn`. Never `npm` or `npx`. Never `yarn add --dev` — use `yarn add -D`.
+
+### Content Layer API
+
+Use Astro 6 API: `const { Content } = await render(entry)` — not `entry.render()`.
+
+### CSS
+
+- CSS custom properties for all theming (see `src/styles/_colors.css`)
+- Dark mode via `[data-theme='dark']` selector — never Tailwind's `dark:` prefix
+- No `innerHTML` with untrusted content — use `textContent`
+
+### Config changes
+
+Any new feature must have:
+
+- A flag in `site.ts` with a JSDoc comment
+- Documentation in `CUSTOMIZE.md`
+- Build verified to exit 0
+
+### No hardcoded persona strings
+
+**Never embed persona names, demo values, or user-visible strings directly in components.**
+All such values must originate in `src/config/site.ts` and be passed down as props.
+
+Examples of what NOT to do:
+
+```typescript
+// ❌ Wrong — hardcoded persona
+const PERSONA_LAST_NAME = 'einstein';
+
+// ❌ Wrong — hardcoded UI label
+<button>Abs</button>
+```
+
+Examples of what to do instead:
+
+```typescript
+// ✅ Correct — derived from config
+const authorLastName = site.publications.authorLastName ?? site.author.name.split(' ').pop() ?? '';
+
+// ✅ Correct — label from config
+<button>{labels.abstract ?? 'Abs'}</button>
+```
+
+This applies to publication author highlighting, search placeholders, empty-state messages, page descriptions, and any other user-visible text.
+
+### Schema changes
+
+When adding BibTeX fields, frontmatter fields, or collection fields:
+
+- Update `src/content.config.ts` with the Zod schema
+- Use `z.coerce.string()` for fields that YAML may parse as numbers (ISBN, IDs)
+- Add `optional()` with a default for fields that may not be present
+
+---
+
+## Patterns to follow
+
+### Clickable card with inner link (avoid nested `<a>`)
+
+```astro
+<div class="card" data-href={url} role="link" tabindex="0">
+  {/* inner GitHub link — real <a> */}
+  <a href={githubUrl} class="github-link" onclick="event.stopPropagation()">...</a>
+</div>
+
+<script>
+  document.querySelectorAll('[data-href]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (!(e.target as Element).closest('a')) {
+        window.location.href = card.dataset.href!;
+      }
+    });
+  });
+</script>
+```
+
+### Per-post CDN widget (in Post.astro)
+
+```astro
+---
+const { chart_js = false } = post.data;
+---
+
+{chart_js && <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer />}
+```
+
+### Analytics injection (in Base.astro)
+
+```astro
+---
+const { pirsch } = site.analytics;
+---
+
+{pirsch && <script defer src="https://api.pirsch.io/pa.js" data-code={pirsch} />}
+```
+
+---
+
+## Files you should NOT modify
+
+- `yarn.lock` — managed by yarn automatically
+- `dist/` — build output, not tracked in git
+- `.husky/` — hooks managed by husky
+
+---
+
+## Files you will frequently modify
+
+| File                        | Purpose                                               |
+| --------------------------- | ----------------------------------------------------- |
+| `src/config/site.ts`        | Add feature flags, config options                     |
+| `src/content.config.ts`     | Add collection fields                                 |
+| `src/layouts/Post.astro`    | Add per-post CDN widgets                              |
+| `src/layouts/Base.astro`    | Add global scripts (analytics, consent)               |
+| `src/components/*.astro`    | New UI components                                     |
+| `src/pages/*.astro`         | New or modified pages                                 |
+| `src/content/**/*.md`       | Demo content                                          |
+| `src/data/papers.bib`       | BibTeX demo entries                                   |
+| `src/data/coauthors.yml`    | Co-author links (LastName → url/scholar/orcid)        |
+| `src/data/citations.yml`    | Citation counts; auto-updated — rarely edit manually  |
+| `scripts/update-citations.ts` | Citation fetch script; edit to change API/options   |
+| `CUSTOMIZE.md`              | Document new features                                 |
+
+---
+
+## Testing
+
+```bash
+yarn test           # unit tests (Vitest)
+yarn lint           # ESLint
+yarn format         # Prettier (check only in CI)
+yarn build          # full production build + pagefind index
+```
+
+The build is the primary acceptance test. All pages must generate without errors.
+
+---
+
+## Pull request checklist
+
+- [ ] `yarn build` exits 0 with 0 TypeScript errors
+- [ ] `yarn lint` passes
+- [ ] New feature has a flag in `site.ts`
+- [ ] New feature documented in `CUSTOMIZE.md`
+- [ ] New collection fields added to `src/content.config.ts`
+- [ ] Demo content updated if needed

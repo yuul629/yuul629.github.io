@@ -1,0 +1,98 @@
+# RenderCV YAML format — https://docs.rendercv.com/
+# Used by the CV page when site.cv.format is 'rendercv'.
+
+cv:
+  name: Yulisa Blok
+  location: Eindhoven, The Netherlands
+  email: y.x.blok@student.tue.nl
+  phone: 
+  website: https://yuul629.github.io/
+  summary: I am a Creative Technology gradute, who enjoys developing creative and innovative user-centered designs and creating prototypes. During my bachelor’s degree, I gained hands-on experience through a project-based approach.  Learning to go from an initial concept to a working prototype and improving the concept through user testing.
+  social_networks:
+    - network: GitHub
+      username: example
+    - network: LinkedIn
+      username: example
+
+  sections:
+    education:
+      - institution: University of Twente & Vrije Universiteit Amsterdam
+        area: Creative Technology
+        degree: BSc.
+        start_date: 2023-09
+        end_date: 2026-07
+        highlights:
+          - 'Average: 7.6'
+          - 'Thesis: "Design Approach for Facial Expressivity in Telepresence Robots"'
+          - 'Keywords: Human-Centered Design, User Testing, Innovation, Prototyping, Programming'
+
+      - institution: University of Twente
+        area: Robotics
+        degree: Premaster
+        start_date: 2025-09
+        end_date: 2026-01
+        highlights:
+          - 'Average: 7'
+          - 'Courses: Calculus A, Calculus B, Vector Calculus, Engineering System Dynamics, Digital Logic & Computer Organization, Linear Systems'
+          - 'Extra curricular: Statics, Thermodynamics'
+
+      - institution: RSG Broklede
+        area: N&G / N&T
+        degree: VWO 
+        start_date: 2019-09
+        end_date: 2022-07
+
+    experience:
+      - company: Xpeng Center utrecht
+        position: Junior Product Specialist
+        location: Utrecht
+        start_date: 2025-04
+        end_date: present
+        highlights:
+          - Supported costumeres through the whole sales journey
+          - Contributed to sales targets through supporting multiple costumers
+
+      - company: University of Twente
+        position: Member Participation Councile
+        location: Hybrid
+        start_date: 2023-09
+        end_date: 2024-07
+        highlights:
+          - Served as a committee member, representing student interests in monthly committee meetings 
+
+      - company: De Zusters
+        position: Hostess
+        location: Maarssen
+        start_date: 2021-06
+        end_date: 2024-10
+        highlights:
+          - Delivered high-level services in a fine-dining restaurant
+          - Managed my own team in the café section during busy shifts
+
+
+
+
+    awards:
+      - name: Creative Technology Graduationg Nonimee 
+        date: '2026'
+        issuer: Teaching staff of Creative Technolgoy
+        highlights: 
+          - Selected out of 75 graduation students for the quality and extensiveness of my project. Placed third overall during final popularity vote.
+
+      - name: Most aesthic installation
+        date: '2025'
+        issuer: Teaching staff of Creative Technolgoy
+      
+      - name: Most viable concept for a start up
+        date: '2024'
+        issuer: D-Lab, Amsterdam
+        highlights:
+          - 'Designed, developed, and pitched a live feeedback system to correct exectution for a deadlift.'
+
+
+    skills:
+      - label: As a Creative Technologist
+        details: Human-Centered Design, Problem Solving, Critical Thinking, Innovation, Prototyping (LoFi, HiFi, 3D printing), Programming, CAD design, User Testing
+      - label: Languages
+        details: Dutch (native), English (fluent)
+
