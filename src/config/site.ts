@@ -32,10 +32,11 @@ export const site = {
   // ─── Identity ──────────────────────────────────────────────────────────────
 
   /** Site title. Shown in the browser tab and navbar. */
-  title: 'Yulisa',
+  title: 'Yulisa Blok',
 
   /** Site description. Used in meta tags. */
-  description: 'Yulisa Bloks portfolio containing casestudies of her previous works, CV and passion projects.',
+  description:
+    'Yulisa Bloks portfolio containing casestudies of her previous works, CV and passion projects.',
 
   /** Language code for the site. */
   lang: 'en',
@@ -44,7 +45,7 @@ export const site = {
 
   author: {
     /** Full name shown in navbar, about page heading, and footer. */
-    name: 'Yulisa`s portfolio',
+    name: 'YB',
 
     /** Short email address (used in social links). */
     email: 'y.x.blok@student.tue.nl',
@@ -119,7 +120,6 @@ export const site = {
         ],
       },
       { label: 'cv', href: '/cv/' },
-
     ] as NavItem[],
   },
   // ─── Footer ────────────────────────────────────────────────────────────────
