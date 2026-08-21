@@ -73,6 +73,30 @@ const renderedAnnouncements = await Promise.all(
         </div>
       </div>
 
+      <div class="about-columns">
+        <section>
+          <h2>Things I love</h2>
+          <ul class="star-list">
+            <li>Learning and developing my skills in design and technology</li>
+            <li>Realizing my ideas using AI</li>
+            <li>Challenging myself to learn a new skill every year</li>
+            <li>Reading and exploring different perspectives on life</li>
+            <li>Exploring the outdoors</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Things I have accomplished</h2>
+          <ul class="star-list">
+            <li>Team project won the “Most Viable Startup” award</li>
+            <li>Team project won the “Most Aesthetic” award</li>
+            <li>Nominee for the Creative Technology graduation award</li>
+            <li>Taught myself to sew</li>
+          </ul>
+        </section>
+      </div>
+      
+
       <!-- Social icons -->
       {
         site.socials && (
@@ -232,5 +256,43 @@ const renderedAnnouncements = await Promise.all(
   .desc {
     font-size: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .about-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+  .about-columns h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .star-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .star-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .star-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+  }
+
+  @media (max-width: 700px) {
+    .about-columns {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 </style>
