@@ -115,11 +115,12 @@ export const site = {
       {
         label: 'projects',
         children: [
-          { label: 'case studies', href: '/caseStudies/' },
-          { label: 'passion projects', href: '/passion/' },
+          { label: 'case studies', href: '/projects/' },
+          { label: 'passion projects', href: '/projects/' },
         ],
       },
       { label: 'cv', href: '/cv/' },
+
     ] as NavItem[],
   },
   // ─── Footer ────────────────────────────────────────────────────────────────
