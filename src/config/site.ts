@@ -68,7 +68,7 @@ export const site = {
      * HTML is supported.
      */
     moreInfo: `<p>Yulisa Blok</p>
-      <p>Amsterdam, 2025</p>
+      <p></p>
       <p></p>`,
   },
 
