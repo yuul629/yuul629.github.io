@@ -1,7 +1,7 @@
 ---
 name: Linus Torvalds
 role: Visiting Researcher
-photo: /assets/img/prof_pic.jpg
+photo: /assets/img/about/linkedinfoto.jpg
 description: Open-source software developer. Creator of the Linux kernel and Git.
 website: https://github.com/torvalds
 github: torvalds

@@ -112,13 +112,13 @@ should not edit them directly. Use `ASTRO_SITE` and `ASTRO_BASE` instead.
 
 ## 3. Profile photo
 
-Replace `public/assets/img/prof_pic.jpg` (or `.svg`, `.png`, `.webp`) with your own photo.
+Replace `'/assets/img/linkedinfoto.jpg (or `.svg`, `.png`, `.webp`) with your own photo.
 
 Update the path in `site.ts`:
 
 ```typescript
 author: {
-  avatar: '/assets/img/prof_pic.jpg',
+  avatar: '/assets/img/linkedinfoto.jpg',
 }
 ```
 

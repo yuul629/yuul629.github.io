@@ -130,7 +130,7 @@ export const site = {
   author: {
     name: 'Your Name',
     email: 'you@example.com',
-    avatar: '/assets/img/prof_pic.jpg',
+    avatar: '/assets/img/linkedinfoto.jpg',
     subtitle: 'Your Title · Your Institution',
     moreInfo: '<p>Your address here</p>',
   },

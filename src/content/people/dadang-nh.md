@@ -1,7 +1,7 @@
 ---
 name: Dadang NH
 role: Template Creator
-photo: /assets/img/prof_pic.jpg
+photo: /assets/img/about/linkedinfoto.jpg
 description: Software engineer and as-folio template author.
 website: https://dadangnh.com
 github: dadangnh

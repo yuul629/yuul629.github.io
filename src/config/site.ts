@@ -68,7 +68,7 @@ export const site = {
      * HTML is supported.
      */
     moreInfo: `<p>Yulisa Blok</p>
-      <p></p>
+      <p>Amsterdam, 2025</p>
       <p></p>`,
   },
 
@@ -154,7 +154,7 @@ export const site = {
      */
     format: 'rendercv' as 'rendercv' | 'jsonresume',
     /** Path to CV PDF for the download button in public/assets/pdf/. */
-    pdfPath: '/assets/pdf/example_pdf.pdf',
+    pdfPath: '/assets/pdf/CV_Yulisa_blok.pdf',
   },
 
   // ─── Blog ──────────────────────────────────────────────────────────────────

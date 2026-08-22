@@ -102,7 +102,7 @@ https://YOUR-USERNAME.github.io/as-folio
 - Replace the demo content in `src/content/` with your own
 - Add your BibTeX papers to `src/data/papers.bib`
 - Add co-author links to `src/data/coauthors.yml`
-- Replace `public/assets/img/prof_pic.jpg` with your photo
+- Replace `'/assets/img/linkedinfoto.jpg` with your photo
 - Update your CV in `src/data/cv.yml` or `src/data/resume.json`
 
 See [CUSTOMIZE.md](CUSTOMIZE.md) for a complete guide.
