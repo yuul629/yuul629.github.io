@@ -12,7 +12,11 @@
     "github": { "type": "string", "description": "GitHub username" },
     "scholar": { "type": "string", "description": "Google Scholar user ID" },
     "orcid": { "type": "string", "description": "ORCID ID" },
-    "importance": { "type": "number", "default": 999, "description": "Sort order — lower numbers appear first" },
+    "importance": {
+      "type": "number",
+      "default": 999,
+      "description": "Sort order — lower numbers appear first"
+    },
     "group": {
       "type": "string",
       "enum": ["current", "alumni"],

@@ -33,7 +33,7 @@ jobs:
         env:
           ASTRO_SITE: https://yuul629.github.io
           ASTRO_BASE: ''
-          
+
       - name: Commit updated citations.yml
         run: |
           git config user.name "github-actions[bot]"

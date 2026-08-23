@@ -148,8 +148,11 @@ Create a container `<div id="vis1"></div>` and call `vegaEmbed` using the pollin
 
 ```javascript
 (function poll() {
-  if (typeof vegaEmbed === 'undefined') { setTimeout(poll, 50); return; }
-  vegaEmbed('#vis1', spec, {actions: false});
+  if (typeof vegaEmbed === 'undefined') {
+    setTimeout(poll, 50);
+    return;
+  }
+  vegaEmbed('#vis1', spec, { actions: false });
 })();
 ```
 

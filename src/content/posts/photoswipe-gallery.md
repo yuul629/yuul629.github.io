@@ -126,10 +126,12 @@ gallery: true
 ```
 
 ```html
-<a href="/assets/img/full-size.jpg"
-   data-pswp-width="1920"
-   data-pswp-height="1080"
-   data-pswp-caption="Optional caption text">
+<a
+  href="/assets/img/full-size.jpg"
+  data-pswp-width="1920"
+  data-pswp-height="1080"
+  data-pswp-caption="Optional caption text"
+>
   <img src="/assets/img/thumb.jpg" class="img-fluid no-zoom" alt="Description" />
 </a>
 ```

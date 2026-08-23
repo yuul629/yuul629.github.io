@@ -149,7 +149,10 @@ the self-polling pattern to wait for the library to load:
 
 ```javascript
 (function poll() {
-  if (typeof L === 'undefined') { setTimeout(poll, 50); return; }
+  if (typeof L === 'undefined') {
+    setTimeout(poll, 50);
+    return;
+  }
   const map = L.map('myMap').setView([lat, lng], zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors',

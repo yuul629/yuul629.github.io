@@ -119,7 +119,10 @@ Each script block should use the self-polling pattern to wait for Plotly to load
 
 ```javascript
 (function poll() {
-  if (typeof Plotly === 'undefined') { setTimeout(poll, 50); return; }
+  if (typeof Plotly === 'undefined') {
+    setTimeout(poll, 50);
+    return;
+  }
   Plotly.newPlot('myPlot', data, layout, { responsive: true });
 })();
 ```

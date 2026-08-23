@@ -18,7 +18,7 @@ stages:
   - deploy
 
 cache:
-  key: "$CI_COMMIT_REF_SLUG"
+  key: '$CI_COMMIT_REF_SLUG'
   paths:
     - .yarn/cache/
     - node_modules/

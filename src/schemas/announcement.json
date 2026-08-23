@@ -5,8 +5,16 @@
   "required": ["date"],
   "properties": {
     "date": { "type": "string", "format": "date", "description": "Announcement date (YYYY-MM-DD)" },
-    "pinned": { "type": "boolean", "default": false, "description": "Pin to top of announcements list" },
-    "hidden": { "type": "boolean", "default": false, "description": "Hide from the announcements list" }
+    "pinned": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pin to top of announcements list"
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false,
+      "description": "Hide from the announcements list"
+    }
   },
   "additionalProperties": false
 }

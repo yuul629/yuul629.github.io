@@ -193,9 +193,12 @@ Create a container `<div id="myDiff">` and use the self-polling pattern:
 
 ```javascript
 (function poll() {
-  if (typeof Diff2HtmlUI === 'undefined') { setTimeout(poll, 50); return; }
+  if (typeof Diff2HtmlUI === 'undefined') {
+    setTimeout(poll, 50);
+    return;
+  }
   const ui = new Diff2HtmlUI(document.getElementById('myDiff'), unifiedDiffString, {
-    outputFormat: 'side-by-side',   // or 'line-by-line'
+    outputFormat: 'side-by-side', // or 'line-by-line'
     drawFileList: true,
     matching: 'lines',
     highlight: true,

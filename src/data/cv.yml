@@ -5,7 +5,7 @@ cv:
   name: Yulisa Blok
   location: Eindhoven, The Netherlands
   email: y.x.blok@student.tue.nl
-  phone: 
+  phone:
   website: https://yuul629.github.io/
   summary: I am a Creative Technology gradute, who enjoys developing creative and innovative user-centered designs and creating prototypes. During my bachelor’s degree, I gained hands-on experience through a project-based approach.  Learning to go from an initial concept to a working prototype and improving the concept through user testing.
   social_networks:
@@ -38,7 +38,7 @@ cv:
 
       - institution: RSG Broklede
         area: N&G / N&T
-        degree: VWO 
+        degree: VWO
         start_date: 2019-09
         end_date: 2022-07
 
@@ -58,7 +58,7 @@ cv:
         start_date: 2023-09
         end_date: 2024-07
         highlights:
-          - Served as a committee member, representing student interests in monthly committee meetings 
+          - Served as a committee member, representing student interests in monthly committee meetings
 
       - company: De Zusters
         position: Hostess
@@ -69,30 +69,25 @@ cv:
           - Delivered high-level services in a fine-dining restaurant
           - Managed my own team in the café section during busy shifts
 
-
-
-
     awards:
-      - name: Creative Technology Graduationg Nonimee 
+      - name: Creative Technology Graduationg Nonimee
         date: '2026'
         issuer: Teaching staff of Creative Technolgoy
-        highlights: 
+        highlights:
           - Selected out of 75 graduation students for the quality and extensiveness of my project. Placed third overall during final popularity vote.
 
       - name: Most aesthic installation
         date: '2025'
         issuer: Teaching staff of Creative Technolgoy
-      
+
       - name: Most viable concept for a start up
         date: '2024'
         issuer: D-Lab, Amsterdam
         highlights:
           - 'Designed, developed, and pitched a live feeedback system to correct exectution for a deadlift.'
 
-
     skills:
       - label: As a Creative Technologist
         details: Human-Centered Design, Problem Solving, Critical Thinking, Innovation, Prototyping (LoFi, HiFi, 3D printing), Programming, CAD design, User Testing
       - label: Languages
         details: Dutch (native), English (fluent)
-

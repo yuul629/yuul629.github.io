@@ -183,7 +183,10 @@ Initialize charts using the polling pattern to wait for ECharts to load:
 
 ```javascript
 (function poll() {
-  if (typeof echarts === 'undefined') { setTimeout(poll, 50); return; }
+  if (typeof echarts === 'undefined') {
+    setTimeout(poll, 50);
+    return;
+  }
   const chart = echarts.init(document.getElementById('myChart'));
   chart.setOption(spec);
 })();

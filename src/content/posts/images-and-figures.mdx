@@ -39,11 +39,7 @@ Click any image to zoom in — all Figure components are zoomable by default.
     <Figure loading="eager" path="/assets/img/8.jpg" class="img-fluid z-depth-1 rounded" />
   </div>
   <div class="col-sm mt-md-0 mt-3">
-    <Figure
-      loading="eager"
-      path="/assets/img/10.jpg"
-      class="img-fluid z-depth-1 rounded"
-    />
+    <Figure loading="eager" path="/assets/img/10.jpg" class="img-fluid z-depth-1 rounded" />
   </div>
 </div>
 
@@ -110,14 +106,12 @@ The `Figure` component mirrors al-folio's `figure.liquid` interface. All figures
 import Figure from '@components/Figure.astro';
 
 {/* zoomable by default */}
+
 <Figure path="/assets/img/1.jpg" class="img-fluid z-depth-1 rounded" />
-<Figure
-  path="/assets/img/2.jpg"
-  class="img-fluid z-depth-1 rounded"
-  caption="My caption"
-/>
+<Figure path="/assets/img/2.jpg" class="img-fluid z-depth-1 rounded" caption="My caption" />
 
 {/* opt out of zoom */}
+
 <Figure path="/assets/img/icon.png" class="img-fluid" zoomable={false} />
 ```
 

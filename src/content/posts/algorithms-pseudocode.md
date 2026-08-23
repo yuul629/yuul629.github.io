@@ -136,7 +136,7 @@ where deterministic quadrature rules suffer the curse of dimensionality.
 ---
 title: My Post
 pseudocode: true
-math: true   # optional — enables KaTeX for inline/display math in the rest of the post
+math: true # optional — enables KaTeX for inline/display math in the rest of the post
 ---
 ```
 

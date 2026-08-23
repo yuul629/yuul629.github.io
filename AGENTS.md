@@ -171,20 +171,20 @@ const { pirsch } = site.analytics;
 
 ## Files you will frequently modify
 
-| File                        | Purpose                                               |
-| --------------------------- | ----------------------------------------------------- |
-| `src/config/site.ts`        | Add feature flags, config options                     |
-| `src/content.config.ts`     | Add collection fields                                 |
-| `src/layouts/Post.astro`    | Add per-post CDN widgets                              |
-| `src/layouts/Base.astro`    | Add global scripts (analytics, consent)               |
-| `src/components/*.astro`    | New UI components                                     |
-| `src/pages/*.astro`         | New or modified pages                                 |
-| `src/content/**/*.md`       | Demo content                                          |
-| `src/data/papers.bib`       | BibTeX demo entries                                   |
-| `src/data/coauthors.yml`    | Co-author links (LastName → url/scholar/orcid)        |
-| `src/data/citations.yml`    | Citation counts; auto-updated — rarely edit manually  |
-| `scripts/update-citations.ts` | Citation fetch script; edit to change API/options   |
-| `CUSTOMIZE.md`              | Document new features                                 |
+| File                          | Purpose                                              |
+| ----------------------------- | ---------------------------------------------------- |
+| `src/config/site.ts`          | Add feature flags, config options                    |
+| `src/content.config.ts`       | Add collection fields                                |
+| `src/layouts/Post.astro`      | Add per-post CDN widgets                             |
+| `src/layouts/Base.astro`      | Add global scripts (analytics, consent)              |
+| `src/components/*.astro`      | New UI components                                    |
+| `src/pages/*.astro`           | New or modified pages                                |
+| `src/content/**/*.md`         | Demo content                                         |
+| `src/data/papers.bib`         | BibTeX demo entries                                  |
+| `src/data/coauthors.yml`      | Co-author links (LastName → url/scholar/orcid)       |
+| `src/data/citations.yml`      | Citation counts; auto-updated — rarely edit manually |
+| `scripts/update-citations.ts` | Citation fetch script; edit to change API/options    |
+| `CUSTOMIZE.md`                | Document new features                                |
 
 ---
 
