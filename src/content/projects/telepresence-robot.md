@@ -193,6 +193,11 @@ A future iteration would therefore focus on expression intensity and differentia
 
 The recognition pipeline requires further development before autonomous use, a larger and more diverse dataset and higher-quality depth data could improve the classifyier.
 
+### Final report
+
+Read the final report documenting the research process in dept here: 
+
+
 ## References
 
 [1] J. Zhang, X. Xie, G. Peng, L. Liu, H. Yang, R. Guo, J. Cao, and J. Yang, “A real-time and privacy-preserving facial expression recognition system using an ai-powered
