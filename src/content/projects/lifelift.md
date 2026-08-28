@@ -5,3 +5,4 @@ importance: 3
 category: case-studies
 img: /assets/img/projects/GP/fotos/Expression_rendering.png
 ---
+## Project description

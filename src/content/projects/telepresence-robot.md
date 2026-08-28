@@ -56,7 +56,7 @@ The final face shape was developed using sketches, paper prototypes, and hardwar
 <div class="image-row">
   <figure>
     <img
-      src="\public\assets\img\projects\GP\fotos\itt2.jpg"
+      src="/assets/img/projects/GP/fotos/itt2.jpg"
       alt="Figure :First iterration of the sketches"
     />
     <figcaption>First set of sketches blurting different shapes.</figcaption>
@@ -64,7 +64,7 @@ The final face shape was developed using sketches, paper prototypes, and hardwar
 
   <figure>
     <img
-      src="\public\assets\img\projects\GP\fotos\itt2-2.jpg"
+      src="/assets/img/projects/GP/fotos/itt2-2.jpg"
       alt="Figure: Second itteration of the sketches"
     />
     <figcaption>Second itteration of the sketches based on the first set. </figcaption>
@@ -78,7 +78,7 @@ A major constraint was the stereo camera used for telepresence, as it size deter
 <div class="image-row">
   <figure>
     <img
-      src="\public\assets\img\projects\GP\fotos\20260409_105253.jpg"
+      src="/assets/img/projects/GP/fotos/20260409_105253.jpg"
       alt="Paper prototype for the placement of the stereocamera"
     />
     <figcaption>Paper prototype for the placement of the stereocamera were the lenses figurate as eyes.</figcaption>
@@ -86,7 +86,7 @@ A major constraint was the stereo camera used for telepresence, as it size deter
 
   <figure>
     <img
-      src="\public\assets\img\projects\GP\fotos\20260409_105020.jpg"
+      src="/assets/img/projects/GP/fotos/20260409_105020.jpg"
       alt="Paper prototype for the placement of the stereocamera"
     />
     <figcaption>Paper prototype for the placement of the stereocamera were the lenses figurate as the cheeks.</figcaption>
@@ -99,7 +99,7 @@ For expression rendering, I focused on the features with the strongest expressiv
 
 <figure class = small-image>
   <img
-    src="\public\assets\img\projects\GP\fotos\Rendering.png"
+    src="/assets/img/projects/GP/fotos/Rendering.png"
     alt="In this figure the results from the preveided interaction quality."
   />
   <figcaption>
@@ -115,7 +115,7 @@ The selected faceshape was further developed into a CAD model using Onshape. For
 
 <figure class = small-image>
     <img
-        src="\public\assets\img\projects\GP\fotos\Exploded-view.png"
+        src="/assets/img/projects/GP/fotos/Exploded-view.png"
         alt="Exploded view of assembly showing all of the components"
     />
     <figcaption>Exploded view of assembly showing all of the components.</figcaption>
@@ -141,7 +141,7 @@ The design process described above led me to build a semi functional pipeline. I
     className="project-video"
   >
     <source
-      src="\public\assets\videos\demo-dynamic-expression.mp4"
+      src="/assets/videos/demo-dynamic-expression.mp4"
       type="video/mp4"
     />
   </video>
@@ -159,7 +159,7 @@ This showed that the simplified rendering strategy was effective, while also ide
 
 <figure class = small-image>
   <img
-    src="\public\assets\img\projects\GP\fotos\recognition-expression.png"
+    src="/assets/img/projects/GP/fotos/recognition-expression.png"
     alt="In this figure the results from the preveided interaction quality."
   />
   <figcaption>
@@ -173,7 +173,7 @@ A second study compared the perceived quality of interatior of a robot with stat
 
 <figure class = small-image>
   <img
-    src="\public\assets\img\projects\GP\fotos\perceived-interaction.png"
+    src="/assets/img/projects/GP/fotos/perceived-interaction.png"
     alt="In this figure the results from the preveided interaction quality evaluation are shown."
   />
   <figcaption>
