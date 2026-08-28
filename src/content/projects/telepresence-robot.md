@@ -95,7 +95,7 @@ A major constraint was the stereo camera used for telepresence, as it size deter
 
 ### Design of the expressions
 
-For expression rendering, I focused on the features with the strongest expressive value according to literature: eyebrows and mouth. Due to the time constraint, I addapted a design from Wang et al. [3] to fit in the hybrid design. 
+For expression rendering, I focused on the features with the strongest expressive value according to literature: eyebrows and mouth. Due to the time constraint, I addapted a design from Wang et al. [3] to fit in the hybrid design.
 
 <figure class = small-image>
   <img
@@ -106,7 +106,6 @@ For expression rendering, I focused on the features with the strongest expressiv
     In this figure the results from the preveided interaction quality are described. The results were evaluated using a Post Hoc Wilkinson rank test. 
   </figcaption>
 </figure>
-
 
 ## Realization of the prototype
 
@@ -127,9 +126,10 @@ The selected faceshape was further developed into a CAD model using Onshape. For
 Using a 3D printer the CAD model was realized and adjusted. While printing I rotated the dome shape to 55 degrees so that the design curved was printed well. Additionally, to **omit waistfull** printing while prototyping I printed larger parts in smaller components. Which allowed me to first test the fits.
 
 ## Outcome
+
 ### Functional prototype
 
-The design process described above led me to build a semi functional pipeline. In the video below I recorded a demo of the change in facial expressions.  
+The design process described above led me to build a semi functional pipeline. In the video below I recorded a demo of the change in facial expressions.
 
 <figure className="project-video-container">
   <video
