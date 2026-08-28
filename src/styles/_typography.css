@@ -77,3 +77,118 @@ hr {
   border-top: 1px solid var(--global-divider-color);
   margin: 2rem 0;
 }
+
+/* ─── Project / case study typography ───────────────────────────── */
+
+/* Normal paragraph spacing */
+.post p {
+  margin-top: 0;
+  margin-bottom: 1.15rem;
+}
+
+/* Main section heading */
+.post h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+
+  margin-top: 2.5rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Small headings inside a section */
+.post h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Lists */
+.post ul.project-list {
+  list-style-type: disc !important;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.post ul.project-list > li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  margin-bottom: 0.3rem;
+}
+
+.post ul.project-list > li::marker {
+  font-size: 1.1em;
+}
+
+/* ─── Project / case study image styling ───────────────────────────── */
+/*sizing of medium images*/
+.post .small-image {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.post figure {
+  margin: 2rem 0;
+}
+
+.post figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.post figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+/*sizing of images placed next to eachother*/
+.post .image-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.post .image-row figure {
+  margin: 0;
+}
+
+.post .image-row img {
+  width: 80%;
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .post .image-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Styling of the video*/
+.project-video-container {
+  margin: 2rem 0;
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 8px;
+}
+
+.project-video-container figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}

@@ -68,7 +68,7 @@ export const site = {
      * HTML is supported.
      */
     moreInfo: `<p>Yulisa Blok</p>
-      <p>Amsterdam, 2025</p>
+      <p>Amsterdam</p>
       <p></p>`,
   },
 
@@ -111,7 +111,6 @@ export const site = {
     socialIcons: false,
 
     items: [
-      { label: 'about', href: '/' },
       {
         label: 'projects',
         children: [
@@ -120,6 +119,7 @@ export const site = {
         ],
       },
       { label: 'cv', href: '/cv/' },
+      { label: 'about', href: '/' },
     ] as NavItem[],
   },
   // ─── Footer ────────────────────────────────────────────────────────────────

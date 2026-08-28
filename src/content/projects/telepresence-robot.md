@@ -1,115 +1,189 @@
 ---
-title: Telepresence Robot — Design Approach for Interaction Subsystem
-description: Designed, developed, and evaluated an expressive interaction pipeline for an immersive telepresence robot.
-importance: 8
+title: A Design Approach for Facial Expressivity Pipeline in Telepresence Robots
+description: Designed, developed, and evaluated a pipeline for facial expressivity on an immersive telepresence robot. The work was nomination for the "Creative Technogoly Graduation Award", this resulted in a third place overall.
+importance: 1
 category: case-studies
 img: /assets/img/projects/GP/fotos/Expression_rendering.png
 ---
 
-> **Role:** Designer, Developer, and team leader  
-> **Client:** Human Media Interaction group  
-> **Keywords:** human-robot interaction, concept development, prototyping, user evaluation
+**Role:** Designer and developer
+**Client:** Human Media Interaction group  
+**Project-type**: Individual
+**Keywords:** human-robot interaction, concept development, prototyping, user evaluation
 
-_Telepresene robots allow people to interact remotely though a physical robotic embodiment equiped with a camera. This camera streams to a VR headset that the operator is wearing. This increases the quality of interaction, however much of the operator's non-verbal communication is lost._
+## Project Description
 
-_This project explored how facial expressivity could be added to a cost-constrained telepresence robot. I designed a modular interaction pipeline that captures the operator’s facial expressions using depth sensing, classifies them, and translates them into simplified expressions displayed on the robot itself. The work combined human-robot interaction, concept development, prototyping, machine learning, embedded hardware, and user evaluation._
+_Telepresence robots allow operators to participate in social interaction from a remote location through a robotic embodiment. These interactions are often described from the operator’s
+perspective, while the quality of interaction is also shaped by the interactors’ perception of the robot. In human-to-human interaction, facial expressions play a crucial role in commu-
+nicating emotion and empathy._
 
-**Design Approces** :
-The pipeline can be characterized by two phases: expression recognition and expression rendering. Based on these phases I developed the system as to connected modules. THis alllowe for the functions to be developed in parraled and individually evaluated.
+This project explored how facial expressivity could be added to a cost-constrained telepresence robot. I designed a pipeline that captures the operator’s facial expressions using a time-of-flight (TOF) sensor, classifies the captured expression, and renders a pre-design corresposning expression on the robot. This prototype was realized using a modular approach using. The work combined human-robot interaction, concept development, prototyping, machine learning, embedded hardware, and user evaluation.
 
-For expression recognition, I selected Time-of-Flight depth sensing instead of conventional RGB recognition. This reduced the amount of directly identifiable visual information being capture. Moreover, I selected a externally mounted sensor as not all VR headsets are equipped with interanally mounted camera's nor is the shape of a VR headset standardized.
+## Design Approces
 
-For the robot face, I deliberately avoided a fully mechanical or highly realistic design. Instead, I developed a hybrid head combining a 3D-printed embodiment with digital facial features.
+The pipeline can be characterized by two phases: expression recognition and expression rendering. Based on these phases I developed the system as to connected modules. This alllowed for the modules to be developed in parrallel and individually evaluated. During the development of user centered concept 3 pilars were central.
 
-This kept the mechanism simple while retaining enough expressive freedom for social interaction.
-
-**From Concepts to Final Form**:
-
-The head design was developed through sketches, paper prototypes, hardware placement tests, and CAD iterations.
-
-A major constraint was the stereo camera used for telepresence. Rather than hiding it, I integrated the camera lenses into the face as the robot's eyes.
-
-The final plectrum-shaped head was selected because it created a recognizable facial structure without appearing overly human.
-
-For expression rendering, I focused on the features with the strongest expressive value: eyebrows and mouth.
-
-Three LCD displays were integrated into the head:
-
-<ul>
-    <li>left eyebrow;</li>
-    <li>right eyebrow; </li>
-    <li>mouth. </li>
+<ul class="project-list">
+    <li> A evidence based approach, this was used to identify state of the art technologies: using a TOF sensor as siggested by Zhang et al. [1] to capture expressions and using a hybrid embodyment were expressions were digitally rendered on a physical embodiment [2]. This research Shaping the direction of the project. </li>
+    <li> Prototping, in various stages of the development lead me to mittigate gues work. Based one different phases of (concept) developement I applied low-fidelity prototyping methods such as sketching and paper prototyping or high fidelity prototyping methods such as CAD modeling and hardware.</li>
+    <li> Continous evaluation of design decisions with the client and potential throughout the developement of the concept safe ensured that the final design positively contributed to the users exeriences. </li>
 </ul>
 
-This allowed the robot to render distinct expressions while avoiding the complexity of mechanical facial actuation.
+## Engineering decisions
 
-**System Implementation** :
+### Time of fight sensor
 
-The final subsystem consisted of:
+For expression recognition, I selected time of flight sensor instead of conventional RGB recognition. This reduced the amount of directly identifiable visual information being capture. Moreover, I selected a externally mounted sensor as not all VR headsets are equipped with interanally mounted camera's nor is the shape of a VR headset standardized.
 
-Depth sensing → CNN classification → ROS 2 → Raspberry Pi → 3 LCD displays
+### Hybrid rendering approach
 
-A dedicated dataset was collected from 12 participants wearing a VR headset, resulting in 9,421 depth frames across five expression classes.
+For the robot face, I deliberately avoided a fully mechanical expressions as the robot had to be simple mechanically simple or highly realistic design to omit the uncanny valley. Instead, I developed a hybrid head combining a 3D-printed physical embodiment with digital facial features. The digital features were realized using pre-designed facial expressions renderd on LCD screens.
 
-The depth data was cleaned, temporally filtered, and converted into a compact three-channel representation containing facial depth, movement, and variation over time.
+### ROS2
 
-A compact CNN was then trained to classify the expressions.
+For the realization of the pipeline ROS2 Kilted Kajiu was selected and used in combination with Ubuntu 24.04 as this supported the modular development approach.
 
-On the robot, a Raspberry Pi received expression labels through ROS 2 and rendered the corresponding eyebrow and mouth graphics over SPI.
+### Wizard of Oz recognition
 
-Expression assets were stored locally on the Pi, meaning only the classification label had to be transmitted.
+For the recognition a facial expression a CNN was used in combination with different preprocessing techniques. The recognition model achieved 37% accuracy and a 31% F1-score under leave-one-participant-out validation. Although this was above the approximately 20% chance level, it was not reliable enough for real-time use with unseen users. Therefore the final interaction study, used a Wizzard of Oz approach were expression labels were manually sent through the same ROS 2 interface.
 
-**A Critical Design Decision**
+## Design decisions
 
-The recognition model achieved 37% accuracy and a 31% F1-score under leave-one-participant-out validation.
+### Selecting a face shape
 
-Although this was above the approximately 20% chance level, it was not reliable enough for real-time use with unseen users.
+The final face shape was developed using sketches, paper prototypes, and hardware placement tests. In the first two itterations of sketches played with different face shapes and different expression methods such as eyes and eyebrows. During coffee chats with fellow students I learned what face shapes appealled to them, based on their input I selected and developed a final design. The final plectrum-shaped head was selected because it created a recognizable facial structure without appearing overly human. This shape was then translated into a CAD model.
 
-Instead of allowing the weak classifier to distort the evaluation of the robot face, I separated the two problems.
+<div class="image-row">
+  <figure>
+    <img
+      src="\public\assets\img\projects\GP\fotos\itt2.jpg"
+      alt="Figure :First iterration of the sketches"
+    />
+    <figcaption>First set of sketches blurting different shapes.</figcaption>
+  </figure>
 
-For the final interaction study, expression labels were manually sent through the same ROS 2 interface.
+  <figure>
+    <img
+      src="\public\assets\img\projects\GP\fotos\itt2-2.jpg"
+      alt="Figure: Second itteration of the sketches"
+    />
+    <figcaption>Second itteration of the sketches based on the first set. </figcaption>
+  </figure>
+</div>
 
-This allowed me to evaluate one question independently:
+### Hardware placement
 
-Does the expressive robot actually improve the interaction when the correct expression is rendered?
+A major constraint was the stereo camera used for telepresence, as it size determined the size of the robotic head. Using paper prototyping I ideated on different positions, this resulted in the camera lenses figurating as the robot's eyes. However, the lenses were uncanny small in comparising to the size of the head which had to accomodate the camera's body. To solve this I addded extra circular plates to increase the size of the eyes.
 
-This decision made the evaluation more useful and clearly identified the FER model as the subsystem requiring further development.
+<div class="image-row">
+  <figure>
+    <img
+      src="\public\assets\img\projects\GP\fotos\20260409_105253.jpg"
+      alt="Paper prototype for the placement of the stereocamera"
+    />
+    <figcaption>Paper prototype for the placement of the stereocamera were the lenses figurate as eyes.</figcaption>
+  </figure>
 
-**Evaluation**
-Expression recognizability
+  <figure>
+    <img
+      src="\public\assets\img\projects\GP\fotos\20260409_105020.jpg"
+      alt="Paper prototype for the placement of the stereocamera"
+    />
+    <figcaption>Paper prototype for the placement of the stereocamera were the lenses figurate as the cheeks.</figcaption>
+  </figure>
+</div>
 
-The rendered expressions were evaluated with 37 participants.
+### Design of the expressions
 
-Joyful, fearful, and indignant expressions were clearly distinguishable from the alternative labels.
+For expression rendering, I focused on the features with the strongest expressive value according to literature: eyebrows and mouth. Due to the time constraint, I addapted a design from Wang et al. [3] to fit in the hybrid design. 
 
-The disgusted expression was frequently confused with indignant.
+<figure class = small-image>
+  <img
+    src="\public\assets\img\projects\GP\fotos\Rendering.png"
+    alt="In this figure the results from the preveided interaction quality."
+  />
+  <figcaption>
+    In this figure the results from the preveided interaction quality are described. The results were evaluated using a Post Hoc Wilkinson rank test. 
+  </figcaption>
+</figure>
+
+
+## Realization of the prototype
+
+### CAD design
+
+The selected faceshape was further developed into a CAD model using Onshape. For each component an attatchment approach was selected that allowed me to easily reach the component while still being secure.
+
+<figure class = small-image>
+    <img
+        src="\public\assets\img\projects\GP\fotos\Exploded-view.png"
+        alt="Exploded view of assembly showing all of the components"
+    />
+    <figcaption>Exploded view of assembly showing all of the components.</figcaption>
+</figure>
+
+### Fabrication
+
+Using a 3D printer the CAD model was realized and adjusted. While printing I rotated the dome shape to 55 degrees so that the design curved was printed well. Additionally, to **omit waistfull** printing while prototyping I printed larger parts in smaller components. Which allowed me to first test the fits.
+
+## Outcome
+### Functional prototype
+
+The design process described above led me to build a semi functional pipeline. In the video below I recorded a demo of the change in facial expressions.  
+
+<figure className="project-video-container">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+    className="project-video"
+  >
+    <source
+      src="\public\assets\videos\demo-dynamic-expression.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <figcaption>
+    Functional prototype demonstrating the change in facial expressions.
+  </figcaption>
+</figure>
+
+### Expression recognizability
+
+The rendered expressions were evaluated with 37 participants. Joyful, fearful, and indignant expressions were clearly distinguishable from the alternative labels. The disgusted expression was frequently confused with indignant.
 
 This showed that the simplified rendering strategy was effective, while also identifying a specific design that required further iteration.
 
-**Impact on Interaction**
+<figure class = small-image>
+  <img
+    src="\public\assets\img\projects\GP\fotos\recognition-expression.png"
+    alt="In this figure the results from the preveided interaction quality."
+  />
+  <figcaption>
+    In this figure the results from the preveided interaction quality are described. The results were evaluated using a Post Hoc Wilkinson rank test. 
+  </figcaption>
+</figure>
 
-A second study compared a robot with static facial behaviour against the dynamically expressive version.
+### Impact on Interaction
 
-N = 12
+A second study compared the perceived quality of interatior of a robot with static facial behaviour against the dynamically expressive version with 12 participants using a script, insert script. The participant evalueted the interaction using a shortend Robot Social Attribute Scale.
 
-Attribute Static Expressive
-Warmth 2.04 4.08
-Competence 1.50 3.96
-Discomfort 2.00 2.00
+<figure class = small-image>
+  <img
+    src="\public\assets\img\projects\GP\fotos\perceived-interaction.png"
+    alt="In this figure the results from the preveided interaction quality evaluation are shown."
+  />
+  <figcaption>
+    In this figure the results from the preveided interaction quality are described. These results are a summary of a performed Man-Withney U Test.
+  </figcaption>
+</figure>
 
-Warmth and competence both improved significantly (p = 0.005), while discomfort did not significantly change.
+### Design Outcome
 
-Participants interacting with the expressive robot also described it as more responsive and reported feeling more heard.
-
-The result was important because it showed that the design did more than display recognizable graphics:
-
-the expressive behaviour changed how people perceived the robot.
-
-**Design Outcome**
-
-The strongest result of the project was the expression-rendering system.
-
-The hybrid design demonstrated that a robot does not need a realistic or mechanically complex face to communicate emotion effectively. A small number of carefully selected digital features were enough to create a measurable improvement in perceived warmth and competence.
+The strongest result of the project was the expression-rendering system. The hybrid design demonstrated that a robot does not need a realistic or mechanically complex face to communicate emotion effectively. A small number of carefully selected digital features were enough to create a measurable improvement in perceived warmth and competence.
 
 The evaluation also exposed limitations in my design decisions.
 
@@ -117,10 +191,15 @@ The similarity between the negative expressions made disgust and indignation dif
 
 A future iteration would therefore focus on expression intensity and differentiation, rather than simply increasing visual complexity.
 
-The recognition pipeline requires further development before autonomous use, particularly through a larger and more diverse dataset and higher-quality depth data.
+The recognition pipeline requires further development before autonomous use, a larger and more diverse dataset and higher-quality depth data could improve the classifyier.
 
-**Key Outcome**
+## References
 
-The project resulted in a functional, modular expression-rendering system and a clear development path for automatic recognition.
+[1] J. Zhang, X. Xie, G. Peng, L. Liu, H. Yang, R. Guo, J. Cao, and J. Yang, “A real-time and privacy-preserving facial expression recognition system using an ai-powered
+microcontroller,” Electronics, vol. 13, no. 14, p. 2791, 2024.
 
-More importantly, the evaluation demonstrated that simple, responsive facial expression can substantially change the perceived social quality of a telepresence robot.
+[2] M. Wairagkar, M. R. Lima, D. Bazo, R. Craig, H. Weissbart, A. C. Etoundi, T. Reichen-bach, P. Iyengar, S. Vaswani, C. James, et al., “Emotive response to a hybrid-face robot
+and translation to consumer social robots,” IEEE Internet of Things Journal, vol. 9, no. 5, pp. 3174–3188, 2021. (accessed Mar. 13, 2026).
+
+[3] T. Wang, L. Liu, L. Yang, and W. Yue, “Creating the optimal design approach of facial expression for the elderly intelligent service robot,” Journal of Advanced Mechanical
+Design, Systems, and Manufacturing, vol. 17, no. 5, pp. JAMDSM0061–JAMDSM0061, 2023. Accessed 21 Apr. 2026.
