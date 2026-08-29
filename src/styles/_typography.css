@@ -237,7 +237,9 @@ hr {
 .pdf-icon-link i {
   font-size: 2rem;
   color: var(--global-theme-color);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .pdf-icon-link:hover i {
