@@ -1,0 +1,26 @@
+---
+interface NavItem {
+  label: string;
+  id: string;
+}
+
+interface Props {
+  items: NavItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<nav class="project-nav" aria-label="Project sections">
+  <div class="project-nav-line"></div>
+
+  <div class="project-nav-links">
+    {
+      items.map((item) => (
+        <a href={`#${item.id}`}>
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>

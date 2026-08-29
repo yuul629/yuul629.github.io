@@ -40,9 +40,25 @@ const items = site.navbar.items;
     <a
       href={`${site.base}/`}
       class="text-lg font-bold"
-      style="color: var(--global-text-color); text-decoration: none;"
+      style="
+        color: var(--global-text-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      "
     >
-      {site.author.name}
+      <img
+        src={`${site.base}/favicon.png`}
+        alt=""
+        style="
+          width: 34px;
+          height: 34px;
+          object-fit: contain;
+        "
+      />
+
+      <span>{site.author.name}</span>
     </a>
 
     <!-- Desktop nav -->

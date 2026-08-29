@@ -23,7 +23,7 @@ cv:
         end_date: 2026-07
         highlights:
           - 'Average: 7.6'
-          - 'Thesis: <a href=" https://purl.utwente.nl/essays/110681" target="_blank" rel="noopener noreferrer">"Design Approach for Facial Expressivity in Telepresence Robots"</a>'
+          - 'Thesis: <a href=" https://purl.utwente.nl/essays/110681" target="_blank" rel="noopener noreferrer">"Design Approach for Facial Expressivity in Telepresence Robots"</a>, grade: 9.'
           - 'Keywords: Human-Centered Design, User Testing, Innovation, Prototyping, Programming'
 
       - institution: University of Twente

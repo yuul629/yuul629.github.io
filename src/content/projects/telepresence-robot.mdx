@@ -7,7 +7,29 @@ img: /assets/img/projects/GP/fotos/Expression_rendering.png
 ---
 
 import IconFilePdf from '~icons/fa-solid/file-pdf';
+import ProjectNav from "../../components/ProjectNav.astro";
 
+<div className="project-layout">
+
+  <aside className="project-sidebar">
+
+    <ProjectNav
+      items={[
+        { label: "Project description", id: "project-description" },
+        { label: "Design approach", id: "design-approach" },
+        { label: "Engineering decisions", id: "engineering-decisions" },
+        { label: "Design decisions", id: "design-decisions" },
+        { label: "Realization", id: "realization" },
+        { label: "Evaluation", id: "evaluation" },
+        { label: "Outcome", id: "outcome" },
+      ]}
+    />
+
+  </aside>
+
+  <main className="project-content">
+
+  
 **Role:** Designer and developer
 
 **Client:** Human Media Interaction group  
@@ -16,7 +38,7 @@ import IconFilePdf from '~icons/fa-solid/file-pdf';
 
 **Keywords:** human-robot interaction, concept development, prototyping, user evaluation
 
-## Project Description
+<h2 id="project-description">Project description</h2>
 
 _Telepresence robots allow operators to participate in social interaction from a remote location through a robotic embodiment. These interactions are often described from the operator’s
 perspective, while the quality of interaction is also shaped by the interactors’ perception of the robot. In human-to-human interaction, facial expressions play a crucial role in commu-
@@ -24,7 +46,7 @@ nicating emotion and empathy._
 
 This project explored how facial expressivity could be added to a cost-constrained telepresence robot. I designed a pipeline that captures the operator’s facial expressions using a time-of-flight (TOF) sensor, classifies the captured expression, and renders a pre-design corresposning expression on the robot. This prototype was realized using a modular approach using. The work combined human-robot interaction, concept development, prototyping, machine learning, embedded hardware, and user evaluation.
 
-## Design Approces
+<h2 id="design-approach">Design approach</h2>
 
 The pipeline can be characterized by two phases: expression recognition and expression rendering. Based on these phases I developed the system as to connected modules. This alllowed for the modules to be developed in parrallel and individually evaluated. During the development of user centered concept 3 pilars were central.
 
@@ -34,7 +56,7 @@ The pipeline can be characterized by two phases: expression recognition and expr
     <li> Continous evaluation of design decisions with the client and potential throughout the developement of the concept safe ensured that the final design positively contributed to the users exeriences. </li>
 </ul>
 
-## Engineering decisions
+<h2 id = "engineering-decisions"> Engineering desicions </h2>
 
 ### Time of fight sensor
 
@@ -52,7 +74,7 @@ For the realization of the pipeline ROS2 Kilted Kajiu was selected and used in c
 
 For the recognition a facial expression a CNN was used in combination with different preprocessing techniques. The recognition model achieved 37% accuracy and a 31% F1-score under leave-one-participant-out validation. Although this was above the approximately 20% chance level, it was not reliable enough for real-time use with unseen users. Therefore the final interaction study, used a Wizzard of Oz approach were expression labels were manually sent through the same ROS 2 interface.
 
-## Design decisions
+<h2 id="design-decisions">Design decisions</h2>
 
 ### Selecting a face shape
 
@@ -112,7 +134,7 @@ For expression rendering, I focused on the features with the strongest expressiv
   </figcaption>
 </figure>
 
-## Realization of the prototype
+<h2 id="realization">Realization of the prototype</h2>
 
 ### CAD design
 
@@ -130,7 +152,7 @@ The selected faceshape was further developed into a CAD model using Onshape. For
 
 Using a 3D printer the CAD model was realized and adjusted. While printing I rotated the dome shape to 55 degrees so that the design curved was printed well. Additionally, to **omit waistfull** printing while prototyping I printed larger parts in smaller components. Which allowed me to first test the fits.
 
-## Outcome
+<h2 id ="outcome"> Outcome </h2>
 
 ### Functional prototype
 
@@ -143,7 +165,7 @@ The design process described above led me to build a semi functional pipeline. I
     loop
     playsInline
     preload="metadata"
-    classNameName="project-video"
+    className="project-video"
   >
     <source
       src="/assets/videos/demo-dynamic-expression.mp4"
@@ -155,6 +177,7 @@ The design process described above led me to build a semi functional pipeline. I
     Functional prototype demonstrating the change in facial expressions.
   </figcaption>
 </figure>
+<h2 id ="evaluation">Evaluation</h2>
 
 ### Expression recognizability
 
@@ -221,3 +244,6 @@ and translation to consumer social robots,” IEEE Internet of Things Journal, v
 
 [3] T. Wang, L. Liu, L. Yang, and W. Yue, “Creating the optimal design approach of facial expression for the elderly intelligent service robot,” Journal of Advanced Mechanical
 Design, Systems, and Manufacturing, vol. 17, no. 5, pp. JAMDSM0061–JAMDSM0061, 2023. Accessed 21 Apr. 2026.
+  </main>
+
+</div>
