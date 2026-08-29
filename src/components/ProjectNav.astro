@@ -15,12 +15,6 @@ const { items } = Astro.props as Props;
   <div class="project-nav-line"></div>
 
   <div class="project-nav-links">
-    {
-      items.map((item) => (
-        <a href={`#${item.id}`}>
-          {item.label}
-        </a>
-      ))
-    }
+    {items.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}
   </div>
 </nav>
