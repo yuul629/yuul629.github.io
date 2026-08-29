@@ -111,7 +111,7 @@ export const site = {
     socialIcons: false,
 
     items: [
-      { label: 'passion projects', href: '/projects/' },
+      { label: 'projects', href: '/projects/' },
       { label: 'cv', href: '/cv/' },
       { label: 'about', href: '/' },
     ] as NavItem[],
