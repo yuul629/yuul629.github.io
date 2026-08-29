@@ -1,8 +1,0 @@
----
-title: User evaluated live feedback on deadlift execution
-description: Designed and developed an interactive system that provides life visual feedback on the users form during a deadlift. This prototype has been developed through two itterations of user evaluation studies. Additionally, this project has been pitched in a Shark Tank like event hosted by the D-Lab which resulted in the "most viable concept for a start up".
-importance: 3
-category: case-studies
-img: /assets/img/projects/live-lift/cover-foto-livelift.jpg
----
-## Project description
