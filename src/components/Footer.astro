@@ -1,52 +1,56 @@
 ---
 import { site } from '@config/site';
 
-const year = new Date().getFullYear();
-const lastUpdated = new Date().toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+import IconEnvelope from '~icons/fa-solid/envelope';
+import IconLinkedin from '~icons/fa-brands/linkedin';
+import IconGithub from '~icons/fa-brands/github';
 
-const isSticky = site.footer.position === 'sticky';
-const footerStyle = [
-  'background-color: var(--global-footer-bg-color);',
-  'color: var(--global-footer-text-color);',
-  'padding: 1rem 0;',
-  isSticky ? 'position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;' : 'margin-top: auto;',
-].join(' ');
+const year = new Date().getFullYear();
 ---
 
-<footer style={footerStyle}>
-  <div class="page-container text-center text-sm">
-    <p>
-      &copy; {year}
-      {site.author.name}.
-      {site.footer.text && <span set:html={site.footer.text} />}
-      {site.footer.lastUpdated && <span class="ml-2">Last updated: {lastUpdated}.</span>}
-    </p>
+<footer class="site-footer">
+  <div class="page-container footer-inner">
     {
-      site.footer.impressum && (
-        <p class="mt-1">
-          <a
-            href={site.footer.impressum}
-            style="color: var(--global-footer-link-color); text-decoration: none;"
-          >
-            Legal Notice
+      site.footer.showContact && (
+        <div class="footer-contact">
+          <strong class="footer-contact-title">Contact</strong>
+
+          <a class="contact-row" href={`mailto:${site.author.email}`}>
+            <IconEnvelope />
+            <span>{site.author.email}</span>
           </a>
-        </p>
+
+          {site.socials.linkedin_username && (
+            <a
+              class="contact-row"
+              href={`https://www.linkedin.com/in/${site.socials.linkedin_username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconLinkedin />
+              <span>LinkedIn</span>
+            </a>
+          )}
+
+          {site.socials.github_username && (
+            <a
+              class="contact-row"
+              href={`https://github.com/${site.socials.github_username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconGithub />
+              <span>GitHub</span>
+            </a>
+          )}
+        </div>
       )
     }
+
+    <div class="footer-meta">
+      <span>&copy; {year} {site.author.name}.</span>
+
+      {site.footer.text && <span set:html={site.footer.text} />}
+    </div>
   </div>
 </footer>
-
-<style>
-  footer a {
-    color: var(--global-footer-link-color);
-  }
-
-  footer a:hover {
-    color: var(--global-footer-text-color);
-    text-decoration: underline;
-  }
-</style>

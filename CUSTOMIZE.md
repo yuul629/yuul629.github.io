@@ -400,7 +400,7 @@ Set the subtitle shown below the page heading in `site.ts`:
 ```typescript
 pages: {
   projects: {
-    description: 'A growing collection of your cool projects.',
+    description: 'A growing collection of your cool projects!',
   },
 },
 ```

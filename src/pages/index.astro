@@ -96,17 +96,6 @@ const renderedAnnouncements = await Promise.all(
         </section>
       </div>
 
-      <!-- Social icons -->
-      {
-        site.socials && (
-          <div class="social mt-6">
-            <div class="contact-icons">
-              <SocialLinks />
-            </div>
-          </div>
-        )
-      }
-
       <!-- Announcements / News -->
       {
         site.announcements.enabled && allAnnouncements.length > 0 && (

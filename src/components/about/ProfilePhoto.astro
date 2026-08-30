@@ -1,6 +1,7 @@
 ---
 import { site } from '@config/site';
 import { withBase } from '@utils/base';
+import SocialLinks from '@components/SocialLinks.astro';
 
 interface Props {
   src?: string;
@@ -33,4 +34,5 @@ const imgClass = circular ? 'img-fluid z-depth-1 rounded-circle' : 'img-fluid z-
     onerror={`this.src='${fallback}'`}
   />
   {site.author.moreInfo && <div class="more-info" set:html={site.author.moreInfo} />}
+  <SocialLinks />
 </div>

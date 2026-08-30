@@ -1,5 +1,6 @@
 ---
 import Giscus from '@components/Giscus.astro';
+import ReadingProgress from '@components/ReadingProgress.astro';
 import { site } from '@config/site';
 import Page from '@layouts/Page.astro';
 import { withBase } from '@utils/base';
@@ -52,6 +53,7 @@ const relatedEntries =
 ---
 
 <Page title={title} description={description} image={ogImagePath}>
+  {site.features.progressBar && <ReadingProgress />}
   <div class="post">
     <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb" class="breadcrumb-nav">

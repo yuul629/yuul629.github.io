@@ -1,10 +1,11 @@
 ---
-title: AI backed interactive gardening experience
+title: AI backed interactive gardening experience - Garden in my Heart
 description: Designed an interactive experience backed by a deep learning model that distinguished 5 different handgestures. Based on the excetution of a gesture an animation was shown.
 importance: 7
 category: case-studies
 img: /assets/img/projects/tuintje-in-mijn-hart/gardeninmyheart.png.png
 ---
+
 import IconFilePdf from '~icons/fa-solid/file-pdf';
 import ProjectNav from "../../components/ProjectNav.astro";
 
@@ -30,7 +31,7 @@ import ProjectNav from "../../components/ProjectNav.astro";
 
 **Keywords:** AI model development, interaction, user experience
 
-<h2 id="project-description"> Project description </h2>
+<h2 id="project-description">Project description</h2>
 In this project a interactive gardening experience backed by a deep learning (DL) model was developed. The concept, model and the visual designs were developed in a compressed time line of 1.5 weeks.
 
 In the game, everything revolves around gardening flowers. The game guides users through the whole gardening process through 5 different touch gestures that sybolized steps you take when growing the flow: digging in the earth, planting a seed, covering the seed, watering the seed and finally picking the flow you have grown. 
@@ -50,7 +51,7 @@ As the gesture data consisted of temporal sequences with varying lengths. I sele
 
 A added a bidrectional LSTM so that the model could learn patters from both earlier and later gestures.This increased accuracy by approximately 0.10. The limited dataset introduced the risk of overfitting. To mittigate the risk, dropout and L2 regularization were introduced in combination with the AdamW optimizer. This resulted in a model architecture designed specifically around the temporal nature and limited scale of the available data.
 
-<h2 id = "outcome"> Outcome </h2>
+<h2 id = "outcome">Outcome</h2>
 ### Model
 
 The select model to be used for the game had an accuracy of 0.8749 and the training loss was 0.4232. 
@@ -85,12 +86,11 @@ The select model to be used for the game had an accuracy of 0.8749 and the train
 Below you two videos demoing the game: 
 <figure className="project-video-container">
   <video
-    autoPlay
+    controls
     muted
-    loop
     playsInline
     preload="metadata"
-    classNameName="project-video"
+    className="project-video"
   >
     <source
       src="/assets/videos/demo-good-outcome(1).mp4"
@@ -105,12 +105,11 @@ Below you two videos demoing the game:
 
 <figure className="project-video-container">
   <video
-    autoPlay
+    controls
     muted
-    loop
     playsInline
     preload="metadata"
-    classNameName="project-video"
+    className="project-video"
   >
     <source
       src="/assets/videos/demo-not-good-outcome(1).mp4"

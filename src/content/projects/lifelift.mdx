@@ -1,11 +1,11 @@
 ---
-title: User evaluated live feedback on deadlift execution
+title: User evaluated live feedback on deadlift execution - Live Lift
 description: Designed and developed an interactive system that provides life visual feedback on the users form during a deadlift. This prototype has been developed through two itterations of user evaluation studies. Additionally, this project has been pitched in a Shark Tank like event hosted by the D-Lab which resulted in the "most viable concept for a start up".
 importance: 3
 category: case-studies
 img: /assets/img/projects/live-lift/cover-foto-livelift.jpg
 ---
----
+
 import IconFilePdf from '~icons/fa-solid/file-pdf';
 import ProjectNav from "../../components/ProjectNav.astro";
 
@@ -17,6 +17,7 @@ import ProjectNav from "../../components/ProjectNav.astro";
       items={[
         { label: "Project description", id: "project-description" },
         { label: "Engineering decisions", id: "engineering-decisions" },
+        { label: "Design decisions", id: "design-decisions" },
         { label: "Outcome", id: "outcome" },
       ]}
     />
@@ -25,110 +26,79 @@ import ProjectNav from "../../components/ProjectNav.astro";
   
   <main className="project-content">
 
-**Role:** Designer and developer of the AI model
+**Role:** Concept developer and programmer
 
 **Project-type**: Team project
 
-**Keywords:** AI model development, interaction, user experience
+**Keywords:** programming, itterative design, user experience
 
-<h2 id="project-description"> Project description </h2>
-In this project a interactive gardening experience backed by a deep learning (DL) model was developed. The concept, model and the visual designs were developed in a compressed time line of 1.5 weeks.
+<h2 id="project-description">Project description</h2>
+This project explored the design of an interactive feedback system to help users improve their deadlift form. A side-view camera captures the user’s movement, which is displayed on a screen with visual overlays indicating correct and incorrect posture. Surrounding LEDs provide an additional attention cue when incorrect form is detected.
 
-In the game, everything revolves around gardening flowers. The game guides users through the whole gardening process through 5 different touch gestures that sybolized steps you take when growing the flow: digging in the earth, planting a seed, covering the seed, watering the seed and finally picking the flow you have grown. 
-There are also special challenges, like watering the plant just right. If you give too much water, the flower will wilt, and this is shown directly on the screen. The player also receives feedback on whether the gesture was correctly recognized by the model, so they can try again if needed.
+The concept was developed to address injury risk during strength training. Research indicates that young male gym users, particularly those between 18 and 25 years old, are at increased risk of lower-back injuries [1]. The deadlift was selected because incorrect execution can place substantial load on the lower back, while correct performance depends strongly on posture and movement quality. This makes it well suited to real-time visual feedback.
+
+The resulting system provides a low-cost and accessible way for users to receive immediate feedback on their technique, particularly when training without a coach or training partner.
 
 ### My contributions
-During this project I colleborated with a fellow student, together we developed the concept and defined the animations. My main responsibility was the development of the AI based gesture recognition, including data preparation, model architecture, training, and evaluation.
+
+I was responsible for developing the software that evaluated the user's lifting form. I implemented a rule-based evaluation system that translated movement data into real-time feedback, allowing the prototype to identify incorrect execution without relying on machine learning.
 
 <h2 id="engineering-decisions">Engineering decisions</h2>
 
-### Preprocessing of the data
-The data was augmented by adding random noise to it to increase the size of the dataset, effectively tripling the dataset. Augmenting the data enabled us to train a more robust model with higher accuracy.  Then labels were encoded into a numerical integer to be able to train the LSTM. 
-The data was then split randomly into training and testing data. In this split 30 percent of the data was used for testing. From the testing data, 30 percent of the data was randomly split into validation data to be able to validate the model. Then the data was split into batches of 32, and the data that did not fit into a batch was dropped. 
+### Rule-based approach
 
-### Handeling variable-length gesture data
-As the gesture data consisted of temporal sequences with varying lengths. I selected a LSTM based architecture, as it could model temporal dependencies while handeling variable-length motion sequences.
+During development, I implemented a rule-based approach to evaluate deadlift form. This was selected because the project required a transparent and controllable system that could be developed with limited data and adjusted quickly during prototyping. Instead of training a machine-learning model, I translated observed movement patterns from reference videos into explicit evaluation criteria.
 
-A added a bidrectional LSTM so that the model could learn patters from both earlier and later gestures.This increased accuracy by approximately 0.10. The limited dataset introduced the risk of overfitting. To mittigate the risk, dropout and L2 regularization were introduced in combination with the AdamW optimizer. This resulted in a model architecture designed specifically around the temporal nature and limited scale of the available data.
+### Joint-geometry evaluation
 
-<h2 id = "outcome"> Outcome </h2>
-### Model
+To track body position during the deadlift, I used MediaPipe to extract a limited set of body landmarks from the camera feed. I selected the ankle, knee, hip, shoulder, and ear because these points provided enough information to evaluate the user’s posture while keeping the computational requirements low.
 
-The select model to be used for the game had an accuracy of 0.8749 and the training loss was 0.4232. 
+MediaPipe was chosen because it provided a reliable and accessible way to obtain body-joint coordinates in real time without developing a custom pose-estimation model.
 
-<div className="image-row-three">
-  <figure>
-    <img
-      src="/assets/img/projects/tuintje-in-mijn-hart/Tuintje in mijn hart/trainingsloss.png"
-      alt="Graph of the trainings loss"
-    />
-    <figcaption>In this figure the training and validation loss are displayed. This figure shows that both of the loss is quite simular.</figcaption>
-  </figure>
+### Callibration of the system
 
-  <figure>
-    <img
-      src="/assets/img/projects/tuintje-in-mijn-hart/Tuintje in mijn hart/confusion-matrix.png"
-      alt="Graph of the confusion matrix"
-    />
-    <figcaption>In this figure the confusion matrix of the validation of the model is displayer. C = closing, d = digging, h = harvesting, p = planting, and w = watering</figcaption>
-  </figure>
+To calibrate the system, I used videos of experienced lifters demonstrating correct technique. I then tested the resulting rules with fellow students who had prior gym experience and no history of injury during the exercise, using their performance to assess whether the system could distinguish between correct and incorrect form.
 
-  <figure>
-    <img
-      src="/assets/img/projects/tuintje-in-mijn-hart/Tuintje in mijn hart/accuracy.png"
-      alt="Graph of the accuracy"
-    />
-    <figcaption>In this figure the accuracy per training epoch is displayed. The training accuracy and the validation accuracy are quite similar each epoch.</figcaption>
-  </figure>
-</div>
+<h2 id="design-decisions">Design decisions</h2>
 
-## Demo 
-Below you two videos demoing the game: 
-<figure className="project-video-container">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="metadata"
-    classNameName="project-video"
-  >
-    <source
-      src="/assets/videos/demo-good-outcome(1).mp4"
-      type="video/mp4"
-    />
-  </video>
+### Research based approach
+After reviewing several directions with the project mentors, we selected a gym installation as the most viable concept. It offered the strongest opportunity for direct interaction while remaining realistic to develop within the available project timeline.
 
-  <figcaption>
-    Functional game walking through the game when all the correct gestures are made.
-  </figcaption>
-</figure>
+The concept focused on providing real-time feedback during a deadlift. A side-view camera captures the user’s movement, while a screen positioned in front of the user displays their posture together with corrective visual overlays. This setup was chosen to make feedback available during the movement itself, rather than only after completion.
 
-<figure className="project-video-container">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="metadata"
-    classNameName="project-video"
-  >
-    <source
-      src="/assets/videos/demo-not-good-outcome(1).mp4"
-      type="video/mp4"
-    />
-  </video>
+### Visual feedback overlay
 
-  <figcaption>
-    Functional game walking through the game when all the in correct gestures are made and getures are not well executed.
-  </figcaption>
-</figure>
+The first low-fidelity prototype used coloured lines to compare the user’s current posture with an ideal deadlift posture. Prototype testing showed that participants could understand the concept, but the feedback was not immediately clear without additional context.
 
+One recurring issue was the use of red to represent the user’s current body position. Participants associated red with an error state, which made the feedback harder to interpret. Based on this evaluation, I changed the current-position overlay from red to blue, while retaining green for the target posture.
+
+The prototype was also revised so that the target posture could update throughout different phases of the deadlift instead of representing only a limited number of static positions.
+
+### LED attention cue
+
+The visual overlay provided detailed corrective information, but it required the user to actively look at the screen. To make incorrect posture more noticeable during the movement, LEDs were added around the display as a secondary feedback channel.
+
+The LEDs activate whenever the user moves outside the acceptable posture range. Their purpose is not to explain the correction itself, but to attract the user’s attention to the screen, where the more detailed visual feedback is displayed.
+
+<h2 id = "outcome">Outcome</h2>
+
+### Functional prototype
+
+The project resulted in a functional prototype that could track the user’s deadlift posture, compare it against predefined movement criteria, and provide real-time visual and LED feedback.
+
+### User evaluation
+
+The evaluation showed that participants generally understood the purpose of the system and considered the feedback useful for improving their form. The instruction video improved initial understanding, while the testing also identified clear areas for refinement, particularly the colour and brightness of the LEDs and the meaning of the visual feedback lines.
+
+### Project outcome
+
+The concept demonstrated potential as an accessible training aid, particularly for less experienced gym users. The project was also awarded Most Viable Start-up Concept, highlighting its perceived potential beyond the prototype stage.
+ 
 ### Final report
 
 Read the final report documenting the research process in depth here:
 <a
-  href="/assets/pdf/garden-in-heart-report.pdf"
+  href="/assets/pdf/livelift_report.pdf"
   target="_blank"
   rel="noopener noreferrer"
   className="pdf-icon-link"
@@ -140,3 +110,8 @@ Read the final report documenting the research process in depth here:
   </main>
 
 </div>
+
+## References
+
+[1] Cuthbertson-Moon, M., Hume, P. A., Wyatt, H. E., Carlson, I., & Hastings, B. (2024). Gym and fitness injuries amongst those aged 16–64 in New Zealand: Analysis of ten years of Accident Compensation Corporation injury claim data. Sports Medicine - Open, 10(1). https://doi.org/10.1186/s40798-024-00694-9
+

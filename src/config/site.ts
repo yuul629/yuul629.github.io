@@ -67,8 +67,8 @@ export const site = {
      * Address block below profile photo.
      * HTML is supported.
      */
-    moreInfo: `<p>Yulisa Blok</p>
-      <p>Amsterdam</p>
+    moreInfo: `<p></p>
+      <p></p>
       <p></p>`,
   },
 
@@ -111,14 +111,15 @@ export const site = {
     socialIcons: false,
 
     items: [
-      { label: 'projects', href: '/projects/' },
-      { label: 'cv', href: '/cv/' },
-      { label: 'about', href: '/' },
+      { label: 'Projects', href: '/projects/' },
+      { label: 'CV', href: '/cv/' },
+      { label: 'About', href: '/' },
     ] as NavItem[],
   },
   // ─── Footer ────────────────────────────────────────────────────────────────
 
   footer: {
+    showContact: true,
     /**
      * Text shown in footer. HTML is supported.
      * Leave empty string to hide.
@@ -135,7 +136,7 @@ export const site = {
      * 'normal'  — sits at the natural bottom of page content (only visible when scrolled down)
      * 'hidden'  — footer is not rendered at all
      */
-    position: 'sticky' as 'sticky' | 'normal' | 'hidden',
+    position: 'normal' as 'sticky' | 'normal' | 'hidden',
   },
 
   // ─── CV page ───────────────────────────────────────────────────────────────
@@ -390,7 +391,8 @@ export const site = {
   pages: {
     projects: {
       /** Description shown below the "projects" heading on the projects page. */
-      description: 'A growing collection of your cool projects.',
+      description:
+        'A curated collection of projects that have sparked my intrest in a field of engineering or pushed me to grow in to a better engineer.',
     },
     teaching: {
       /** Description shown below the "teaching" heading on the teaching page. */
