@@ -7,6 +7,14 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [2.0.2](https://github.com/yuul629/yuul629.github.io/compare/v2.0.1...v2.0.2) (2026-08-30)
+
+
+### Miscellaneous
+
+* update citation counts [skip ci] ([ed01372](https://github.com/yuul629/yuul629.github.io/commit/ed01372817c39af43f5dfbd65f2b1034e6ef0d07))
+* update citation counts [skip ci] ([a2ba1aa](https://github.com/yuul629/yuul629.github.io/commit/a2ba1aa173fee7e83ac229ce25a7d69ff3142640))
+
 ## [2.0.1](https://github.com/dadangnh/as-folio/compare/v2.0.0...v2.0.1) (2026-08-02)
 
 ### Bug Fixes
