@@ -83,7 +83,7 @@ export const site = {
   socials: {
     email: 'y.x.blok@student.tue.nl',
     x_username: undefined as string | undefined,
-    linkedin_username: 'Yulisa Blok',
+    linkedin_username: 'yulisa-blok-13419b352',
     github_username: 'yuul629',
     gitlab_username: undefined as string | undefined,
     /** Google Scholar user ID — the part after user= in your Scholar URL */
