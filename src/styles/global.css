@@ -1597,7 +1597,6 @@ body[data-tooltips] [data-tooltip]:focus-within::before {
   min-width: 0;
 }
 
-
 /* Tablet / phone */
 @media (max-width: 900px) {
   .project-layout {
@@ -1625,7 +1624,6 @@ body[data-tooltips] [data-tooltip]:focus-within::before {
     overflow-wrap: anywhere;
   }
 }
-
 
 /* Very small phones */
 @media (max-width: 480px) {
