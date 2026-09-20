@@ -32,7 +32,7 @@ export const site = {
   // ─── Identity ──────────────────────────────────────────────────────────────
 
   /** Site title. Shown in the browser tab and navbar. */
-  title: 'Yulisa Blok',
+  title: 'Hi, I\'m Yulisa ',
 
   /** Site description. Used in meta tags. */
   description:
@@ -45,7 +45,7 @@ export const site = {
 
   author: {
     /** Full name shown in navbar, about page heading, and footer. */
-    name: 'YB',
+    name: '',
 
     /** Short email address (used in social links). */
     email: 'y.x.blok@student.tue.nl',
