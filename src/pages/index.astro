@@ -2,43 +2,8 @@
 import ProfilePhoto from '@components/about/ProfilePhoto.astro';
 import { site } from '@config/site';
 import Base from '@layouts/Base.astro';
-import { getBoolField, parseBibtex } from '@utils/bibtex';
-import { getCollection, render } from 'astro:content';
 
 import AboutContent from '../data/about.mdx';
-import bibRaw from '../data/papers.bib?raw';
-
-// Announcements
-const allAnnouncements = site.announcements.enabled
-  ? (await getCollection('announcements'))
-      .filter((e) => !e.data.hidden)
-      .sort((a, b) => {
-        if (a.data.pinned !== b.data.pinned) return a.data.pinned ? -1 : 1;
-        return b.data.date.getTime() - a.data.date.getTime();
-      })
-      .slice(0, site.announcements.limit)
-  : [];
-
-// Latest posts
-const allPosts = site.latestPosts.enabled
-  ? (await getCollection('posts'))
-      .filter((p) => !p.data.hidden)
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-      .slice(0, site.latestPosts.limit)
-  : [];
-
-const formatDate = (d: Date) =>
-  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-
-// Selected publications
-const selectedPapers = site.selectedPapers.enabled
-  ? parseBibtex(bibRaw).filter((e) => getBoolField(e, 'selected'))
-  : [];
-
-// Pre-render announcement content
-const renderedAnnouncements = await Promise.all(
-  allAnnouncements.map(async (item) => ({ item, rendered: await render(item) })),
-);
 ---
 
 <Base isHome={true}>
@@ -50,6 +15,7 @@ const renderedAnnouncements = await Promise.all(
       >
         {(site.title as string) === 'blank' ? site.author.name : site.title}
       </h1>
+
       {
         site.author.subtitle && (
           <p
@@ -62,11 +28,9 @@ const renderedAnnouncements = await Promise.all(
     </header>
 
     <article class="about-section">
-      <!-- Profile photo (floats right by default) -->
       <ProfilePhoto align="right" />
 
       <div class="clearfix">
-        <!-- Bio content from about.mdx -->
         <div class="prose max-w-none">
           <h2>About</h2>
           <AboutContent />
@@ -76,6 +40,7 @@ const renderedAnnouncements = await Promise.all(
       <div class="about-columns">
         <section>
           <h2>Things I love</h2>
+
           <ul class="star-list">
             <li>Learning and developing my skills in design and technology</li>
             <li>Realizing my ideas using AI</li>
@@ -87,6 +52,7 @@ const renderedAnnouncements = await Promise.all(
 
         <section>
           <h2>Things I have accomplished</h2>
+
           <ul class="star-list">
             <li>Team project won the “Most Viable Startup” award</li>
             <li>Team project won the “Most Aesthetic” award</li>
@@ -95,6 +61,9 @@ const renderedAnnouncements = await Promise.all(
           </ul>
         </section>
       </div>
+    </article>
+  </div>
+</Base>
 
 <style>
   .clearfix::after {
@@ -102,11 +71,18 @@ const renderedAnnouncements = await Promise.all(
     display: table;
     clear: both;
   }
+
+  .post-header {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+  }
+
   .post-title {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
   }
+
   .desc {
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -117,7 +93,7 @@ const renderedAnnouncements = await Promise.all(
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     margin-top: 0.75rem;
-    margin-bottem: 5rem;
+    margin-bottom: 5rem;
   }
 
   .about-columns h2 {
@@ -142,7 +118,7 @@ const renderedAnnouncements = await Promise.all(
     content: '★';
     position: absolute;
     left: 0;
-    color: var(--global-theme-color) !important;
+    color: var(--global-theme-color);
   }
 
   @media (max-width: 700px) {
@@ -150,10 +126,10 @@ const renderedAnnouncements = await Promise.all(
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
-  }
 
-.post-header {
-  margin-top: 15rem;
-  margin-bottom: 10rem;
-}
+    .post-header {
+      margin-top: 8rem;
+      margin-bottom: 5rem;
+    }
+  }
 </style>
